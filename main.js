@@ -21,15 +21,6 @@ class LikeButton extends React.Component {
   }
 }
 
-//class timeButton extends React.Component {
-//  constructor(props) {
-//    super(props);
-//    this.state = {entered: false};
-///  }
-//  render() {
-//    if (this.)
-//  }
-//}
 
 const domContainer = document.querySelector('#main_container');
 ReactDOM.render(e(LikeButton), domContainer);
