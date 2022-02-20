@@ -2,40 +2,14 @@ const axios = require("axios");
 
 const YOUR_API_KEY = "AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE";
 
-var start = "Disneyland";
-var dest = "Universal Studios Hollywood";
-var inputTime = 30;
-
-start = start.replaceAll(" ", "+");
-dest = dest.replaceAll(" ", "+");
-
-var config = {
-  method: 'get',
-  url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + start + "&destination=" + dest  + "&key=" + YOUR_API_KEY,
-  headers: { }
-};
-
-async function axiosGet(configuration) {
-  try {
-    const {data:response} = await axios(configuration) //use data destructuring to get data from the promise object
-    return response
-  }
-
-  catch (error) {
-    console.log(error);
-  }
-}
-
-var directions = axiosGet(config).then(function(result) {
-  console.log(result);
-});
-
 function getPath(startAddr, endAddr, time, ownsBike) {
   console.log("IN PATH FINDER");
   let mode;
   if (ownsBike) mode = "bicycling";
   else mode = "walking";
   
+  startAddr = startAddr.replaceAll(" ", "+");
+  endAddr = endAddr.replaceAll(" ", "+");
   let config = {
     method: "get",
     url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + startAddr +
