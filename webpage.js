@@ -112,29 +112,62 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
     */
 
     console.log("IN PATH FINDER");
+    let stops;
     let mode;
     if (ownsBike) mode = "bicycling";
     else mode = "walking";
 
-    startAddr = startAddr.replaceAll(" ", "+");
-    endAddr = endAddr.replaceAll(" ", "+");
+    let start = startAddr.replaceAll(" ", "+");
+    let end = endAddr.replaceAll(" ", "+");
     let config = {
         method: "get",
-        url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + startAddr +
-        "&destination=" + endAddr + "&mode=" + mode + "&key=" + YOUR_API_KEY,
+        url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + start +
+        "&destination=" + end + "&mode=" + mode + "&key=" + YOUR_API_KEY,
         headers: { }
     };
     axios(config).then(function (response) {
         let data = JSON.stringify(response.data);
+        console.log("W/B DATA");
         console.log(data);
 
         let legIndex = 0;
         let totalNonCarTime = 0;
+        let totalCarTime = 0;
+        let currentDriveMillage = 0;
+        let carOrNot = false;
         for (let i = 0; i < data.routes.length; i++) {
             // sum up all the biking times
         }
-        if (totalNonCarTime > time) {
-            
+        if (totalNonCarTime <= time) {
+            stops = [startAddr, endAddr];
+            return;
+        } else { // need to drive
+            config.url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + start +
+            "&destination=" + end + "&mode=" + "driving" + "&key=" + YOUR_API_KEY;
+            axios(config).then(function (secondResponse) {
+                let dataCar = JSON.stringify(secondResponse.data);
+                console.log("CAR DATA");
+                console.log(dataCar);
+                for (let j = 0; j < dataCar.routes.length; j++) {
+                    // sum up all driving times
+                }
+                if (totalCarTime > time) {
+                    carOrNot = true;
+                    stop = [startAddr, endAddr];
+                    // fix later
+                } else {
+                    let currentDriveTime = 0;
+                    let currentNonCarTime = totalNonCarTime;
+                    while ((currentDriveTime + currentNonCarTime) > time) {
+                        currentDriveTime += dataCar.routes[legIndex]; // this is TIME
+                        currentDriveMillage += dataCar.routes[legIndex]; // this is MILLAGE
+                        currentNonCarTime = totalNonCarTime - (currentNonCarTime + data.routes[legIndex]); // this is TIME FOR BIKE
+                        legIndex += 1;
+                    }
+                    stops = [startAddr, dataCar.routes[legIndex], endAddr];
+                }
+
+            })
         }
     })
     .catch(function (error) {
@@ -142,28 +175,18 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
     })
 
 
-
-
-    //startAddr, endAddr, time, ownsBike
-    // let stops = ["A", "B", "C"];
-    // let transportation;
-    // if (ownsBike == false) {
-    //     transportation = "WALKING";
-    // } else {
-    //     transportation = "BIKING";
-    // } // change transportation for the case when you drive there
-    // if (stops.length == 2) { // A --> B walk/bike
-    // onChangeHandler(stops[0], stops[1], transportation);
-    // }
-    // else { // A --> B --> C swap from driving to walk/bike
-    // onChangeHandler(stops[0], stops[1], "DRIVING");
-    // onChangeHandler(stops[1], stops[2], transportation);
-    // }
-
+    let transportation;
+    if (ownsBike) transportation = "BIKING";
+    else transportation = "WALKING";
+    if (stops.length == 2) { // A --> B walk/bike
+        if (carOrNot) onChangeHandler(stops[0], stops[1], "DRIVING");
+        else onChangeHandler(stops[0], stops[1], transportation);
+    }
+    else { // A --> B --> C swap from driving to walk/bike
+        onChangeHandler(stops[0], stops[1], "DRIVING");
+        onChangeHandler(stops[1], stops[2], transportation); // likely overwrites
+    }
 }
-
-
-
 
 class WelcomeDisplay {
     constructor() {

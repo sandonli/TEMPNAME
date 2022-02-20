@@ -7,8 +7,8 @@
     <meta charset = "utf-8">
     <meta name = "viewport" content = "width = device-width">
     <link rel = "stylesheet" href = "style.css">
-    <script type = "module" src = "webpage.js"></script>
-    <script type = "module" src = "pathfinder.js"></script>
+    <script src = "webpage.js"></script>
+    <script src = "pathfinder.js"></script>
     <title>EcoRoute</title>
 </head>
 <body>
@@ -27,20 +27,23 @@
 
         <div class = "push"></div>
 
-        <div id = "scrollArrow">
+
+        <div class = "alignScrollButton">
             <input type = "image" name = "scrollButton" src = "assets/gif-bounce-arrow.gif"/>
+        </div>
+
             <!-- <input type="button" name = "scrollButton" id = "scrollButton"> -->
             <!-- <img id = "scrollingArrowImage" src = "assets/gif-bounce-arrow.gif"> -->
-        </div>
 
     </div>
 
     <div id = "app-view">
-        <input type = "image" name = "upButton" src = "assets/gif_bounce_up_arrow.gif"/>
+        <div class = "alignUpButton">
+            <input type = "image" name = "upButton" src = "assets/gif_bounce_up_arrow.gif"/>
+        </div>
 
         <p class = "instructionText">Fill out the requirements below and press calculate to get your EcoRoute!</p>
         
-        <div id = "map"></div>
         <!-- <input type = "button" name = "upButton" id = "upButton"> -->
         <input type = "text" id = "time" name = "time">
         <label for = "time">Enter time</label>
@@ -48,18 +51,19 @@
         <label for = "bike">I have a bike</label>
         <!--<input type = "checkbox" id = "car" name = "car">
         <label for = "car">I have a car</label> -->
-        <input type = "button" name = "searchButton">
-        <label for = "searchButton">Find a route</label>
-
-        
         <input id = "startingAddress" placeholder = "Enter a starting address..." type = "text" name = "startAdd">
         <input id = "endingAddress" placeholder = "Enter a destination..." type = "text" name = "endAdd">
+        <label for = "searchButton">Find a route</label>
+        <input type = "button" name = "searchButton">
+        <!-- <label for = "searchButton">Find a route</label> -->
+       
 
-        <div id = "newScrollArrow">
+        <div id = "map"></div>
+
             <!-- <input type = "button" name = "newScrollButton" id = "newScrollButton"> -->
+        <div class = "alignNewScrollButton" >
             <input type = "image" name = "newScrollButton" src = "assets/gif-bounce-arrow.gif"/>
         </div>
-        
 
         <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script> 
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
@@ -68,7 +72,9 @@
     <div id = "credits-view">
         <p class = "creditTitle"></p>
         <!-- <input type = "button" name = "newUpButton" id = "newUpButton"> -->
-        <input type = "image" name = "newUpButton" src = "assets/gif_bounce_up_arrow.gif"/>
+        <div class = "alignNewUpButton">
+            <input type = "image" name = "newUpButton" src = "assets/gif_bounce_up_arrow.gif"/>
+        </div>
         <p class = "ourGoal">Our Goal</p>
     </div>
 </body>
