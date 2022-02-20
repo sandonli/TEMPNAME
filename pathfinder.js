@@ -30,6 +30,10 @@ var directions = axiosGet(config).then(function(result) {
   console.log(result);
 });
 
+function getPath() {
+
+}
+
 
 /*
 async function axiosGet(config) {

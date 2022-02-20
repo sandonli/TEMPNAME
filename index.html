@@ -28,7 +28,9 @@
         <div class = "push"></div>
 
         <div id = "scrollArrow">
-            <input type="button" name = "scrollButton" src = "assets/gif-bounce-arrow.gif">
+            <input type = "image" name = "scrollButton" src = "assets/gif-bounce-arrow.gif"/>
+            <!-- <input type="button" name = "scrollButton" id = "scrollButton"> -->
+            <!-- <img id = "scrollingArrowImage" src = "assets/gif-bounce-arrow.gif"> -->
         </div>
 
     </div>
@@ -38,7 +40,8 @@
         <p class = "instructionText">Fill out the requirements below and press calculate to get your EcoRoute!</p>
         
         <div id = "map"></div>
-
+        <!-- <input type = "button" name = "upButton" id = "upButton"> -->
+        <input type = "image" name = "upBotton" src = "assets/gif_bounce_up_arrow.gif"/>
         <input type = "text" id = "time" name = "time">
         <label for = "time">Enter time</label>
         <input type = "checkbox" id = "bike" name = "bike">
@@ -47,6 +50,12 @@
         <label for = "car">I have a car</label> -->
         <input type = "button" name = "searchButton">
         <label for = "searchButton">Find a route</label>
+
+        <div id = "newScrollArrow">
+            <!-- <input type = "button" name = "newScrollButton" id = "newScrollButton"> -->
+            <input type = "image" name = "newScrollButton" src = "assets/gif-bounce-arrow.gif"/>
+        </div>
+        
         
         <input id = "startingAddress" placeholder = "Enter a starting address..." type = "text" name = "startAdd">
         <input id = "endingAddress" placeholder = "Enter a destination..." type = "text" name = "endAdd">
@@ -56,8 +65,10 @@
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
         <!-- text here -->
     </div>
-    <div class = "credits-view">
-        <p>TESTTESTTEST</p>
+    <div id = "credits-view">
+        <p class = "creditTitle"></p>
+        <!-- <input type = "button" name = "newUpButton" id = "newUpButton"> -->
+        <input type = "image" name = "newUpButton" src = "assets/gif_bounce_up_arrow.gif"/>
     </div>
 </body>
 </html>
