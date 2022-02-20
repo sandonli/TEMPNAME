@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> -->
     <meta charset = "utf-8">
     <meta name = "viewport" content = "width = device-width">
     <link rel = "stylesheet" href = "style.css">
@@ -9,16 +12,24 @@
 </head>
 <body>
     <div id = "instruction-view">
+        <div id = "welcomeImg">
+            <img src = "assets/ecocircle.png"/>
+        </div>
+
+        <p class = "welcomeText">Welcome to EcoRoute!</p>
+        
+        <p class = "descriptionText">Our tool curates the most environmentally friendly yet time efficient route for you!</p>
+
         <div class = "header" id = "ecoHeader">
             <img src = "assets/Capture_ccexpress.png"/>
         </div>
-        <div id = "bPrint1">
-            <img src = "assets/birdPrints.png"/>
-        </div>
+
         <div class = "push"></div>
-        <h1>TSAKLFJAKJSJAJFASKL</h1>
+
+        <!-- <h1>TSAKLFJAKJSJAJFASKL</h1> -->
+
         <div id = "scrollArrow">
-            <input type="button" name = "scrollButton">
+            <input type="button" name = "scrollButton" src = "assets/gif-bounce-arrow.gif">
         </div>
 
     </div>
@@ -27,10 +38,7 @@
         <h1 id = "test1"> HELLO 000</h1>
         <p class = "test2"> HELLO 111</p>
         <p><b>ECO-TONE</b></p>
-        <p>Making The World Green, One Step At A Time</p> 
-        <!--<div id = "logo">
-            <img src = "assets/ecoRouteLogo.png"/>
-        </div>-->
+        <p> Making The World Green, One Step At A Time</p> 
         
         <h1>COOL MAP</h1>
         <div id = "map"></div>
@@ -39,8 +47,8 @@
         <label for = "time">Enter time</label>
         <input type = "checkbox" id = "bike" name = "bike">
         <label for = "bike">I have a bike</label>
-        <input type = "checkbox" id = "car" name = "car">
-        <label for = "car">I have a car</label>
+        <!--<input type = "checkbox" id = "car" name = "car">
+        <label for = "car">I have a car</label> -->
         <input type = "button" name = "searchButton">
         <label for = "searchButton">Find a route</label>
         
@@ -51,8 +59,6 @@
         <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script> 
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
         <!-- text here -->
-        <script src = "scrollButton.js"></script>
-
     </div>
     <div class = "credits-view">
         <p>TESTTESTTEST</p>

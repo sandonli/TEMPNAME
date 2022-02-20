@@ -26,7 +26,9 @@ async function axiosGet(configuration) {
   }
 }
 
-var directions = axiosGet(config);
+var directions = axiosGet(config).then(function(result) {
+  console.log(result);
+});
 
 console.log(directions);
 

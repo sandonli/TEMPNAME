@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sandonli/TEMPNAME#readme",
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.26.0",
+    "node.js": "^0.0.1-security"
   }
 }
