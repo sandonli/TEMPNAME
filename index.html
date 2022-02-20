@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "utf-8">
+    <meta name = "viewport" content = "width = device-width, initial scale = 1">
+    <link rel = "stylesheet" href = "style.css">
+    <script src = "webpage.js"></script>
+    <title>EcoRoute</title>
+</head>
+<body>
+    <div id = "app-view">
+        <h1 id = "test1"> HELLO 000</h1>
+        <p class = "test2"> HELLO 111</p>
+        <p><b>ECO-TONE</b></p>
+        <p>Making The World Green, One Step At A Time</p> 
+        <div id = "main_container"></div>
+        <div id = "logo">
+            <img src = "assets/ecoRouteLogo.png"/>
+        </div>
+
+        <div id = "coolGrass">
+            <img src = "assets/coolgrass.jpg"/>
+        </div>
+        
+        <h1>COOL MAP</h1>
+        <div id = "map"></div>
+
+        <input type = "text" id = "time" name = "time">
+        <label for = "time">Enter time</label>
+        <input type = "checkbox" id = "bike" name = "bike">
+        <label for = "bike">I have a bike</label>
+        <input type = "checkbox" id = "car" name = "car">
+        <label for = "car">I have a car</label>
+        <input type = "button" name = "searchButton">
+        <label for = "searchButton">Find a route</label>
+        
+        <input id = "startingAddress" placeholder = "Enter a starting address..." type = "text" name = "startAdd">
+        <input id = "endingAddress" placeholder = "Enter a destination..." type = "text" name = "endAdd">
+
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script> 
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <!-- text here -->
+        <script src="main.js"></script>
+
+    </div>
+</body>
+</html>
