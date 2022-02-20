@@ -3,7 +3,7 @@
 html, body {height: 100%;}
 
 #instruction-view {
-    background-color: red;
+    background-image: linear-gradient(#DAF5DE, #CFF5CD);
     width: 100vw;
     height: 100vh;
 }
@@ -13,35 +13,43 @@ html, body {height: 100%;}
     height: 50px;
 }
 
+#bPrint1 {
+    transform: rotate(33deg);
+    position: absolute;
+}
+
+
 .header {
-    position: fixed;
+    /*position: fixed;*/
     width: 100%;
     top: 0;
-    height: 30px;
-    background-color: white;
+    height: 0px;
 }
 
 .header img {
-    left: 0;
+    position: fixed;
+    height: 100px;
+    width: 150px;
     top: 0;
-    position: fixed\;
-    height: 30px;
-    width: 60px;
+    left: 0;
 }
 
 .push {
-    margin-bottom :30px;
+    margin-bottom :0px;
 }
 
 
 #app-view {
-    background-color: #C4E6C1; height: 100%; width: 100%;
+    background-image: linear-gradient(#CFF5CD, #B4D5AC);
+    height: 100%; 
+    width: 100%;
     text-align: center; font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient (#C4E6C1, #ABDEBE);
 }
 
 .credits-view {
-    
+    background-image: linear-gradient(#B4D5AC, #88B393);
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -55,6 +63,10 @@ input[type = text] {
 }
 input[type = checkbox] {
     background-color: aqua;
+}
+input[type = button] {
+    width: 100px;
+    height: 100px;
 }
 
 #test1 {text-align: center;}

@@ -1,5 +1,5 @@
 const pathfinder = "webapge.js";
-pathfinder.findBestRoute()
+//pathfinder.findBestRoute()
 
 function emptyDOM(elem) {
     while (elem.firstChild) elem.removeChild(elem.firstChild);
@@ -106,16 +106,27 @@ class WelcomeDisplay {
     constructor() {
         let self = this;
         //this.elem = createDOM(/*add html here*/"");
+        this.instElem = document.getElementById("instruction-view");
         this.elem = document.getElementById("app-view");
+        console.log(this.instElem);
+        this.scrollButton = this.instElem.querySelector("input[name=scrollButton]");
+        console.log(this.scrollButton);
+        this.scrollButton.addEventListener("click", function() {
+            self.elem.scrollIntoView({behavior: "smooth"});
+        }, false);
+        console.log("HERE");
+        
         console.log(this.elem);
+
         this.inputTime = this.elem.querySelector("input[name=time]"); //REMEMBER TO CHANGE
         this.inputBike = this.elem.querySelector("input[name=bike]"); //REMEMBER TO CHANGE
         this.inputCar = this.elem.querySelector("input[name=car]"); //REMEMBER TO CHANGE
         this.searchButton = this.elem.querySelector("input[name=searchButton]");
         this.startAddr = this.elem.querySelector("input[name=startAdd]");
         this.endAddr = this.elem.querySelector("input[name=endAdd]");
-        
         this.searchButton.addEventListener("click", function() {
+            console.log(self.scrollButton);
+            self.scrollButton.click();
             let bikeChecked = false;
             let carChecked = false;
             let time;
@@ -138,26 +149,32 @@ class WelcomeDisplay {
             self.startAddr.value = "";
             self.endAddr.value = "";
             
-            //findBestRoute();
-        })
+            findBestRoute();
+        }, false);
     }
     
 }
 
-class LoadingScreen {
+// class LoadingScreen {
 
-}
+// }
 
-class MapDisplay {
-    constructor() {
-        this.elem = createDOM(/*add html here*/);
-    }
-}
+// class MapDisplay {
+//     constructor() {
+//         this.elem = createDOM(/*add html here*/);
+//     }
+// }
 
 function main() {
     let welcome = new WelcomeDisplay();
-    console.log(document);
+    //console.log(document);
 }
+
+// this.temp = document.querySelector("input[name=scrollButton]");
+// console.log(this.temp);
+// elem.addEventListener("click", function() {
+//     console.log("button works");
+// })
 
 
 
