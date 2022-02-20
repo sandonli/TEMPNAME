@@ -26,9 +26,13 @@ async function axiosGet(configuration) {
   }
 }
 
-var directions = axiosGet(config);
+function findBestPath(Start, Dest, InputTime) {
+  let config;
+  axiosGet(config).then(function(result) {
+    // do stuff here with result
+  })
+}
 
-console.log(directions);
 
 /*
 async function axiosGet(config) {
@@ -121,3 +125,19 @@ if (totalWalkOrBikeTime > inputTime) {  // check if car can drive
 // Show route (A ------> B -------> C)
 
 */
+
+var totalEco = 0;
+
+for (const leg of walking.routes.legs){
+  totalEco += leg.duration.value;
+}
+
+if (totalEco <= InputTime){
+  return walking;
+}
+
+for (const leg of driving.routes.legs){
+  driving.routes;
+}
+
+
