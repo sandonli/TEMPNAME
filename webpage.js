@@ -24,7 +24,8 @@ document.head.appendChild(script);
 function initAll() {
     let options = {
         zoom: 14,
-        center: {lat: 51.0776, lng: -114.1407}
+        center: {lat: 51.0776, lng: -114.1407},
+        mapId: '88aed56e2f74a11'
     }
     let directionsService = new google.maps.DirectionsService;
     let directionsDisplay = new google.maps.DirectionsRenderer;
