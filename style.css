@@ -16,6 +16,17 @@
     bottom: 0;
     width: 100%;
 }
+
+#scrollArrow #scrollButton {
+    background-image: url(assets/gif-bounce-arrow.gif);
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: pointer;
+    border: none;
+    height: 128px;
+    width: 128px;
+}
+
 /* #bPrint1 {
     transform: rotate(33deg);
     position: absolute;
