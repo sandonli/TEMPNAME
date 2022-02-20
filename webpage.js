@@ -145,11 +145,29 @@ function findBestRoute() {
 class WelcomeDisplay {
     constructor() {
         let self = this;
+        /* Get the three main divs */
         this.instElem = document.getElementById("instruction-view");
         this.elem = document.getElementById("app-view");
-
+        this.creditElem = document.getElementById("credits-view");
+        console.log(this.creditElem);
+        /* Generate down arrow event listeners */
         this.scrollButton = this.instElem.querySelector("input[name=scrollButton]");
         this.scrollButton.addEventListener("click", function() {
+            self.elem.scrollIntoView({behavior: "smooth"});
+        }, false);
+        this.scrollButton2 = this.elem.querySelector("input[name=newScrollButton]");
+        console.log(this.scrollButton2);
+        this.scrollButton2.addEventListener("click", function() {
+            self.creditElem.scrollIntoView({behavior: "smooth"});
+        }, false);
+
+        /* Generate up arrow event listeners */
+        this.upArrow = this.elem.querySelector("input[name=upButton]");
+        this.upArrow.addEventListener("click", function() {
+        self.instElem.scrollIntoView({behavior: "smooth"});
+        }, false);
+        this.upArrow2 = this.creditElem.querySelector("input[name=newUpButton]");
+        this.upArrow2.addEventListener("click", function() {
             self.elem.scrollIntoView({behavior: "smooth"});
         }, false);
 
