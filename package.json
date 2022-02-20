@@ -1,0 +1,25 @@
+{
+  "name": "ecoroute",
+  "version": "1.0.0",
+  "description": "An hackathon project",
+  "main": "webpage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandonli/TEMPNAME.git"
+  },
+  "keywords": [
+    "eco"
+  ],
+  "author": "Jason",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandonli/TEMPNAME/issues"
+  },
+  "homepage": "https://github.com/sandonli/TEMPNAME#readme",
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
+}
