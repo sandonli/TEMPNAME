@@ -26,12 +26,18 @@ async function axiosGet(configuration) {
   }
 }
 
+<<<<<<< HEAD
 function findBestPath(Start, Dest, InputTime) {
   let config;
   axiosGet(config).then(function(result) {
     // do stuff here with result
   })
 }
+=======
+var directions = axiosGet(config).then(function(result) {
+  console.log(result);
+});
+>>>>>>> d567ecb094dc6d12a323fd08ddb2d25d221d8941
 
 
 /*
