@@ -1,6 +1,8 @@
 //const pathfinder = require("./webapge.js");
 //pathfinder.findBestRoute()
 
+const { getHeapSnapshot } = require("v8");
+
 function emptyDOM(elem) {
     while (elem.firstChild) elem.removeChild(elem.firstChild);
 }
@@ -86,8 +88,7 @@ function endingPlaceChanged() {
     }
 }
 
-function findBestRoute() {
-    let ownsBike = false;
+function findBestRoute(startAddr, endAddr, time, ownsBike) {
     /***
      * STEPS
      * 1: Check walking/biking time for shortest route. If less than or equal given time constraint, return that route
@@ -119,9 +120,8 @@ function findBestRoute() {
     B->C WALKING/BIKING
 
     */
-
-    
-
+    startAddr, endAddr, time, ownsBike
+    getPath();
    let stops = ["A", "B", "C"];
    let transportation;
    if (ownsBike == false) {
@@ -149,14 +149,14 @@ class WelcomeDisplay {
         this.instElem = document.getElementById("instruction-view");
         this.elem = document.getElementById("app-view");
         this.creditElem = document.getElementById("credits-view");
-        console.log(this.creditElem);
+
         /* Generate down arrow event listeners */
         this.scrollButton = this.instElem.querySelector("input[name=scrollButton]");
         this.scrollButton.addEventListener("click", function() {
             self.elem.scrollIntoView({behavior: "smooth"});
         }, false);
+
         this.scrollButton2 = this.elem.querySelector("input[name=newScrollButton]");
-        console.log(this.scrollButton2);
         this.scrollButton2.addEventListener("click", function() {
             self.creditElem.scrollIntoView({behavior: "smooth"});
         }, false);
@@ -166,6 +166,7 @@ class WelcomeDisplay {
         this.upArrow.addEventListener("click", function() {
         self.instElem.scrollIntoView({behavior: "smooth"});
         }, false);
+
         this.upArrow2 = this.creditElem.querySelector("input[name=newUpButton]");
         this.upArrow2.addEventListener("click", function() {
             self.elem.scrollIntoView({behavior: "smooth"});
@@ -184,22 +185,29 @@ class WelcomeDisplay {
             }
             if (self.inputTime.value.trim() == "" || isNaN(self.inputTime.value) || parseInt(self.inputTime.value) <= 0) {
                 alert("INVALID DATA ENTRY");
+                self.clearInputs();
                 return;
             }
             if (startingAddress == "" || endingAddress == "") {
                 alert("Invalid data entry"); //Elaborate Error message
+                self.clearInputs();
                 return;
             }
-            startingAddress = "";
-            endingAddress = "";
+            let start = startingAddress;
+            let end = endingAddress;
             time = parseInt(self.inputTime.value);
-            self.inputTime.value = "";
-            self.startAddr.value = "";
-            self.endAddr.value = "";
-            findBestRoute();
+            self.clearInputs();
+            findBestRoute(start, end, time, bikeChecked);
         }, false);
     }
-    
+
+    clearInputs() {
+        startingAddress = "";
+        endingAddress = "";
+        this.inputTime.value = "";
+        this.startAddr.value = "";
+        this.endAddr.value = "";
+    }   
 }
 
 function main() {

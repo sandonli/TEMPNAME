@@ -10,11 +10,14 @@
     height: 100vh;
 }
 
+
+
 #scrollArrow {
     text-align: center;
     position: absolute;
+    width: 50%;
     bottom: 0;
-    width: 100%;
+    
 }
 
 #scrollArrow #scrollButton {
@@ -42,7 +45,7 @@
     text-align: center;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 50%;
 }
 
 #scrollArrow2 #scrollButton2 {

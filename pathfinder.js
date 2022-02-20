@@ -31,7 +31,7 @@ var directions = axiosGet(config).then(function(result) {
 });
 
 function getPath() {
-
+  console.log("IN PATHFINDER");
 }
 
 
