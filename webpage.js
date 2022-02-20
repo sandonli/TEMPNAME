@@ -1,3 +1,6 @@
+const pathfinder = "webapge.js";
+pathfinder.findBestRoute()
+
 function emptyDOM(elem) {
     while (elem.firstChild) elem.removeChild(elem.firstChild);
 }
