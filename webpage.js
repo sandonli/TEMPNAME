@@ -151,7 +151,7 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
                 for (let j = 0; j < dataCar.routes.length; j++) {
                     // sum up all driving times
                 }
-                if (totalCarTime > time) {
+                if (totalCarTime >= time) {
                     carOrNot = true;
                     stop = [startAddr, endAddr];
                     // fix later
