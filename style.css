@@ -187,12 +187,28 @@ input[type = checkbox] {
 
 #startingAddress {
     width: 150px;
-
 }
 
 #endingAddress {
     width: 150px;
+}
 
+.paragraph {
+    font-size: 20px;
+    text-align: center;
+    color: #9370db;
+}
+
+.ourGoal { 
+    font-size: 30px;
+    text-align: center;
+    color: #9370db;
+}
+
+.goalPic img { 
+    text-align: center;
+    height: 150px;
+    width: 150px;
 }
 
 #time {
