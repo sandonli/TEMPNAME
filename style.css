@@ -30,8 +30,8 @@ input[type = checkbox] {
 }
 
 #coolGrass img {
-    height: 600;
-    width: 600; 
+    height: 60px; /* both were 600 before */
+    width: 60px; 
 
 }
 
