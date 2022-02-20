@@ -1,5 +1,5 @@
-const axios = require('axios');
-const { dir } = require('console');
+import axios from 'axios';
+import { dir } from 'console';
 var  YOUR_API_KEY = "AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE";
 
 var start = "Disneyland";
@@ -127,18 +127,18 @@ if (totalWalkOrBikeTime > inputTime) {  // check if car can drive
 
 */
 
-var totalEco = 0;
+// var totalEco = 0;
 
-for (const leg of walking.routes.legs){
-  totalEco += leg.duration.value;
-}
+// for (const leg of walking.routes.legs){
+//   totalEco += leg.duration.value;
+// }
 
-if (totalEco <= InputTime){
-  return walking;
-}
+// if (totalEco <= InputTime){
+//   return walking;
+// }
 
-for (const leg of driving.routes.legs){
-  driving.routes;
-}
+// for (const leg of driving.routes.legs){
+//   driving.routes;
+// }
 
 

@@ -1,18 +1,3 @@
-//const pathfinder = require("./webapge.js");
-//pathfinder.findBestRoute()
-
-const { getHeapSnapshot } = require("v8");
-
-function emptyDOM(elem) {
-    while (elem.firstChild) elem.removeChild(elem.firstChild);
-}
-
-function createDOM(htmlString) {
-    let template = document.createElement("template");
-    template.innerHTML = htmlString.trim();
-    return template.content.firstChild;
-}
-
 let script = document.createElement("script");
 script.src = "https://maps.googleapis.com/maps/api/js?key="
     + "AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE&libraries=places&callback=initAll";
@@ -120,7 +105,7 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
     B->C WALKING/BIKING
 
     */
-    startAddr, endAddr, time, ownsBike
+    //startAddr, endAddr, time, ownsBike
     getPath();
    let stops = ["A", "B", "C"];
    let transportation;
@@ -212,15 +197,6 @@ class WelcomeDisplay {
 
 function main() {
     new WelcomeDisplay();
-    //console.log(document);
 }
-
-// this.temp = document.querySelector("input[name=scrollButton]");
-// console.log(this.temp);
-// elem.addEventListener("click", function() {
-//     console.log("button works");
-// })
-
-
 
 window.addEventListener("load", main, false);
