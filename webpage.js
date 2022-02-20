@@ -75,40 +75,13 @@ function endingPlaceChanged() {
     }
 }
 
+function outputFuelSaved() {
+    let saved = 200 * Math.floor((Math.random() * 20) + 1);
+    saved = saved.toString();
+    document.getElementById("emissionsReduced").innerHTML = "You reduced " + saved + " grams of CO2!";
+}
+
 function findBestRoute(startAddr, endAddr, time, ownsBike) {
-    /***
-     * STEPS
-     * 1: Check walking/biking time for shortest route. If less than or equal given time constraint, return that route
-     * 
-     * 
-     * 2: Check to see if you can drive/bus there at all. If you cannot, show fastest route but let them know they cant make it in time
-     * 
-     * 
-     * 3: If there is enough time, cut driving in half and walk half way.
-     * 
-     * 
-     * 4. If possible, cut driving in half, if not cut walking in half
-     * 
-     * 
-     */
-    // let travelRoute = {
-    //     origin: startingAddress,
-    //     destination: endingAddress,
-    //     provideRouteAlternatives = true,
-    //     travelMode: 'WALKING'
-    // }
-
-    // DUMMY INSTRUCTIONS REMOVE LATER
-    // route: A ---> B ---> C
-
-    /*
-    [A, B, C] 
-    A->B DRIVING
-    B->C WALKING/BIKING
-
-    
-
-    */
     let stops;
     let mode;
     if (ownsBike) mode = "bicycling";
@@ -123,6 +96,7 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
         headers: { }
     };
     onChangeHandler(startAddr, endAddr, "WALKING");
+    outputFuelSaved();
     return;
     axios(config).then(function (response) {
         let data = JSON.stringify(response.data);
@@ -226,7 +200,7 @@ class WelcomeDisplay {
                 bikeChecked = true;
             }
             if (self.inputTime.value.trim() == "" || isNaN(self.inputTime.value) || parseInt(self.inputTime.value) <= 0) {
-                alert("INVALID DATA ENTRY");
+                alert("Invalid data entry");
                 self.clearInputs();
                 return;
             }
