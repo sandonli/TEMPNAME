@@ -31,10 +31,11 @@ img {
     left: 0px;
 }
 #map {
+    text-align: center;
     border: 2px solid black;
     border-radius: 4px;
     height: 400px;
-    width: 100%;
+    width: 400px;
     /*-webkit-border-radius:20px;
     z-index:0;*/
     
