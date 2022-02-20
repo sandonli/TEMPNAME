@@ -1,7 +1,3 @@
-const axios = require("axios");
-
-const YOUR_API_KEY = "AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE";
-
 function getPath(startAddr, endAddr, time, ownsBike) {
   console.log("IN PATH FINDER");
   let mode;
@@ -19,6 +15,16 @@ function getPath(startAddr, endAddr, time, ownsBike) {
   axios(config).then(function (response) {
     let data = JSON.stringify(response.data);
     console.log(data);
+
+    let legIndex = 0;
+    for (let i = 0; i < data.routes.length; i++) {
+
+    }
+
+
+
+
+
   })
   .catch(function (error) {
     return (error); // ???
@@ -27,7 +33,7 @@ function getPath(startAddr, endAddr, time, ownsBike) {
 }
 
 /*
-
+data.routes []
 legIndex = 0; // Used to locate the optimal leg in array
 legDriveMillage = 0; // Amount of miles driven in one leg
 legDriveTime = 1; // Length of drive for one leg
