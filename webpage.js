@@ -1,5 +1,3 @@
-// import axios from "axios";
-import axios from "../axios/./lib";
 const YOUR_API_KEY = "AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE";
 
 let script = document.createElement("script");
@@ -22,10 +20,10 @@ function initAll() {
     let directionsDisplay = new google.maps.DirectionsRenderer;
     let map = new google.maps.Map(document.getElementById("map"), options);
     
-    let marker = new google.maps.Marker({
-        position: options.center,
-        map: map,
-    })
+    // let marker = new google.maps.Marker({
+    //     position: options.center,
+    //     map: map,
+    // })
 
     directionsDisplay.setMap(map);
 
@@ -111,8 +109,6 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
     
 
     */
-
-    console.log("IN PATH FINDER");
     let stops;
     let mode;
     if (ownsBike) mode = "bicycling";
@@ -126,10 +122,10 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
         "&destination=" + end + "&mode=" + mode + "&key=" + YOUR_API_KEY,
         headers: { }
     };
+    onChangeHandler(startAddr, endAddr, "WALKING");
+    return;
     axios(config).then(function (response) {
         let data = JSON.stringify(response.data);
-        console.log("W/B DATA");
-        console.log(data);
 
         let legIndex = 0;
         let totalNonCarTime = 0;
@@ -142,7 +138,7 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
         if (totalNonCarTime <= time) {
             stops = [startAddr, endAddr];
             return;
-        } else { // need to drive
+        } else {
             config.url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + start +
             "&destination=" + end + "&mode=" + "driving" + "&key=" + YOUR_API_KEY;
             axios(config).then(function (secondResponse) {
@@ -155,7 +151,6 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
                 if (totalCarTime >= time) {
                     carOrNot = true;
                     stop = [startAddr, endAddr];
-                    // fix later
                 } else {
                     let currentDriveTime = 0;
                     let currentNonCarTime = totalNonCarTime;
@@ -165,14 +160,14 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
                         currentNonCarTime = totalNonCarTime - (currentNonCarTime + data.routes[legIndex]); // this is TIME FOR BIKE
                         legIndex += 1;
                     }
-                    stops = [startAddr, dataCar.routes[legIndex], endAddr];
+                    stops = [startAddr, dataCar.routes[legIndex], endAddr]; // change here
                 }
 
             })
         }
     })
     .catch(function (error) {
-        return (error); // ???
+        return (error);
     })
 
 
@@ -185,7 +180,7 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
     }
     else { // A --> B --> C swap from driving to walk/bike
         onChangeHandler(stops[0], stops[1], "DRIVING");
-        onChangeHandler(stops[1], stops[2], transportation); // likely overwrites
+        onChangeHandler(stops[1], stops[2], transportation);
     }
 }
 
