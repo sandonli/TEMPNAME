@@ -7,7 +7,7 @@ html, body {height: 100%;}
     text-align: center; font-family: Arial, Helvetica, sans-serif;
     background-image: linear-gradient (#C4E6C1, #ABDEBE);
 }
-input[type=text] {
+input[type = text] {
     width: 100px;
     height: 20px;
     margin: 8px 0;
@@ -15,28 +15,48 @@ input[type=text] {
     border: 2px solid black;
     border-radius: 4px;
 }
+input[type = checkbox] {
+    background-color: aqua;
+}
 
 #test1 {text-align: center;}
 .test2 {color: red}
-#images img{
+#logo img{
     height: 100px;
-    width: 126px;
-    bottom: 0px;
-}
-img {
-    height: 100px;
-    width: 126px;
+    width: 100px;
     position: absolute;
     top: 0px;
     left: 0px;
 }
+
+#coolGrass img {
+    height: 600;
+    width: 600; 
+
+}
+
 #map {
-    text-align: center;
+    margin: auto;
     border: 2px solid black;
     border-radius: 4px;
-    height: 400px;
-    width: 400px;
+    display: block;
+    width: 30%;
+    height: 50%;
     /*-webkit-border-radius:20px;
     z-index:0;*/
     
 }
+
+#time {
+
+}
+
+/* #startingAddress {
+    width: 200px;
+    height: 100%;
+}
+
+#endingAddress {
+    width: 200px;
+    height: 100%;
+} */
