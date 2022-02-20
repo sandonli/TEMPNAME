@@ -106,7 +106,7 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
 
     */
     //startAddr, endAddr, time, ownsBike
-    getPath();
+    //getPath();
    let stops = ["A", "B", "C"];
    let transportation;
    if (ownsBike == false) {

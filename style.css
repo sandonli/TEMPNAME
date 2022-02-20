@@ -13,13 +13,13 @@
 
 #scrollArrow {
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
     width: 50%;
-    bottom: 0;
+    /* bottom: 0; */
     
 }
 
-#scrollArrow #scrollButton {
+/* #scrollArrow #scrollButton {
     background-image: url(assets/gif-bounce-arrow.gif);
     background-size: cover;
     /* background: transparent; */
@@ -28,7 +28,7 @@
     border: none;
     height: 128px;
     width: 128px;
-    z-index: 3;
+    z-index: 3; */
 }
 
 /* 
@@ -40,21 +40,19 @@
     top: -10px;
 } */
 
-#scrollArrow2 {
+#scrollArrow2 img{
     text-align: center;
-    position: absolute;
-    bottom: 0;
     width: 50%;
 }
 
-#scrollArrow2 #scrollButton2 {
+/* #scrollArrow2 #scrollButton2 {
     background-image: url(assets/gif-bounce-arrow.gif);
     background-size: cover;
     background-position: 50% 50%;
     cursor: pointer;
     border: none;
     height: 128px;
-    width: 128px;
+    width: 128px; */
 }
 
 /* #bPrint1 {
@@ -130,9 +128,15 @@
     width: 100%;
 }
 
-#newScrollArrow button{
+/* #newScrollArrow button{
     background: url("assets/gift-bounce.gif");
+} */
+
+#newScrollArrow img {
+    text-align: center;
+    width: 50%;
 }
+
 
 
 input[type = text] {
@@ -161,11 +165,13 @@ input[type = checkbox] {
 }
 
 #startingAddress {
-    width: 100px;
+    width: 150px;
+
 }
 
 #endingAddress {
-    width: 100px;
+    width: 150px;
+
 }
 
 #time {
