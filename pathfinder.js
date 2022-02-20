@@ -1,36 +1,36 @@
-function getPath(startAddr, endAddr, time, ownsBike) {
-  console.log("IN PATH FINDER");
-  let mode;
-  if (ownsBike) mode = "bicycling";
-  else mode = "walking";
+// function getPath(startAddr, endAddr, time, ownsBike) {
+//   console.log("IN PATH FINDER");
+//   let mode;
+//   if (ownsBike) mode = "bicycling";
+//   else mode = "walking";
   
-  startAddr = startAddr.replaceAll(" ", "+");
-  endAddr = endAddr.replaceAll(" ", "+");
-  let config = {
-    method: "get",
-    url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + startAddr +
-      "&destination=" + endAddr + "&mode=" + mode + "&key=" + YOUR_API_KEY,
-    headers: { }
-  };
-  axios(config).then(function (response) {
-    let data = JSON.stringify(response.data);
-    console.log(data);
+//   startAddr = startAddr.replaceAll(" ", "+");
+//   endAddr = endAddr.replaceAll(" ", "+");
+//   let config = {
+//     method: "get",
+//     url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + startAddr +
+//       "&destination=" + endAddr + "&mode=" + mode + "&key=" + YOUR_API_KEY,
+//     headers: { }
+//   };
+//   axios(config).then(function (response) {
+//     let data = JSON.stringify(response.data);
+//     console.log(data);
 
-    let legIndex = 0;
-    for (let i = 0; i < data.routes.length; i++) {
+//     let legIndex = 0;
+//     for (let i = 0; i < data.routes.length; i++) {
 
-    }
-
-
+//     }
 
 
 
-  })
-  .catch(function (error) {
-    return (error); // ???
-  })
+
+
+//   })
+//   .catch(function (error) {
+//     return (error); // ???
+//   })
   
-}
+// }
 
 /*
 data.routes []

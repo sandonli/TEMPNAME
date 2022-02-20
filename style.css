@@ -149,7 +149,7 @@
     background-image: linear-gradient(#CFF5CD, #B4D5AC);
     height: 100%; 
     width: 100%;
-    /* text-align: center; */
+    text-align: center;
 } 
 
 #credits-view {
