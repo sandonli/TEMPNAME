@@ -11,6 +11,8 @@
     <div id = "app-view">
         <h1 id = "test1"> HELLO 000</h1>
         <p class = "test2"> HELLO 111</p>
+        <p><b>ECO-TONE</b></p>
+        <p>Making The World Green, One Step At A Time</p> 
         <div id = "main_container"></div>
         <div id = "logo">
             <img src = "assets/ecoRouteLogo.png"/>
@@ -22,63 +24,7 @@
         
         <h1>COOL MAP</h1>
         <div id = "map"></div>
-        <script>
-            let startingAddr;
-            let endingAddr;
-            function initAll() {
-                let options = {
-                        zoom: 14,
-                        center: {lat: 51.0776, lng: -114.1407}
-                }
-                let map = new google.maps.Map(document.getElementById("map"), options);
-                let marker = new google.maps.Marker({
-                    position: options.center,
-                    map: map,
-                })
 
-                startingAddr = new google.maps.places.Autocomplete(
-                    document.getElementById("startingAddress"),
-                    {
-                        /*types: ["establishment"],
-                        fields: ["place_id", "geometry", "name"]*/
-                    }
-                );
-                endingAddr = new google.maps.places.Autocomplete(
-                    document.getElementById("endingAddress"),
-                    {
-                        types: ["establishment"],
-                        fields: ["place_id", "geometry", "name"]
-                    }
-                );
-
-            startingAddr.addListener("place_changed", startingPlaceChanged);
-            endingAddr.addListener("place_changed", endingPlaceChanged);
-        }
-        </script>
-        <script>
-            function startingPlaceChanged() { 
-                let place = startingAddr.getPlace();
-                if (!place.geometry) {
-                    document.getElementById("startingAddress").placeholder = "Enter a starting address...";
-                } else {
-                    //DO SOMETHING HERE
-                    //document.getElementById("details").innerHTML = place.name;
-                }
-            }
-
-            function endingPlaceChanged() { 
-                let place = endingAddr.getPlace();
-                if (!place.geometry) {
-                    document.getElementById("endingAddress").placeholder = "Enter a destination...";
-                } else {
-                    //DO SOMETHING HERE
-                    //document.getElementById("details").innerHTML = place.name;
-
-                }
-            }
-        </script>
-        <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE&libraries=places&callback=initAll" async defer></script>
-        
         <input type = "text" id = "time" name = "time">
         <label for = "time">Enter time</label>
         <input type = "checkbox" id = "bike" name = "bike">
@@ -88,8 +34,8 @@
         <input type = "button" name = "searchButton">
         <label for = "searchButton">Find a route</label>
         
-        <input id = "startingAddress" placeholder = "Enter a starting address..." type = "text">
-        <input id = "endingAddress" placeholder = "Enter a destination..." type = "text">
+        <input id = "startingAddress" placeholder = "Enter a starting address..." type = "text" name = "startAdd">
+        <input id = "endingAddress" placeholder = "Enter a destination..." type = "text" name = "endAdd">
 
 
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script> 
