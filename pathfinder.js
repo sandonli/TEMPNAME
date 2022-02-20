@@ -1,45 +1,23 @@
-//import axios from 'axios';
+import axios from 'axios';
 
-// const YOUR_API_KEY = "AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE";
+const YOUR_API_KEY = "AIzaSyCUVPsRkh4YHvTIzdoh2f1EGrSlR24V_JE";
 
-// var start = "Disneyland";
-// var dest = "Universal Studios Hollywood";
-// var inputTime = 30;
+var start = "Disneyland";
+var dest = "Universal Studios Hollywood";
+var inputTime = 30;
 
-// start = start.replaceAll(" ", "+");
-// dest = dest.replaceAll(" ", "+");
+start = start.replaceAll(" ", "+");
+dest = dest.replaceAll(" ", "+");
 
-// var config = {
-//   method: 'get',
-//   url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + start + "&destination=" + dest  + "&key=" + YOUR_API_KEY,
-//   headers: { }
-// };
+var config = {
+  method: 'get',
+  url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + start + "&destination=" + dest  + "&key=" + YOUR_API_KEY,
+  headers: { }
+};
 
-// async function axiosGet(configuration) {
-//   try {
-//     const {data:response} = await axios(configuration) //use data destructuring to get data from the promise object
-//     return response
-//   }
-
-//   catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// var directions = axiosGet(config).then(function(result) {
-//   console.log(result);
-// });
-
-// function getPath() {
-//   console.log("IN PATHFINDER");
-// }
-
-
-/*
-async function axiosGet(config) {
+async function axiosGet(configuration) {
   try {
-    const {data:response} = await axios(config) //use data destructuring to get data from the promise object
-    console.log(JSON.stringify(response))
+    const {data:response} = await axios(configuration) //use data destructuring to get data from the promise object
     return response
   }
 
@@ -47,20 +25,32 @@ async function axiosGet(config) {
     console.log(error);
   }
 }
-*/
 
-/*
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-  response.data;
-})
-.catch(function (error) {
-  console.log(error);
+var directions = axiosGet(config).then(function(result) {
+  console.log(result);
 });
-*/
 
-
+function getPath(startAddr, endAddr, time, ownsBike) {
+  console.log("IN PATH FINDER");
+  let mode;
+  if (ownsBike) mode = "bicycling";
+  else mode = "walking";
+  
+  let config = {
+    method: "get",
+    url: "https://maps.googleapis.com/maps/api/directions/json?origin=" + startAddr +
+      "&destination=" + endAddr + "&mode=" + mode + "&key=" + YOUR_API_KEY,
+    headers: { }
+  };
+  axios(config).then(function (response) {
+    let data = JSON.stringify(response.data);
+    console.log(data);
+  })
+  .catch(function (error) {
+    return (error); // ???
+  })
+  
+}
 
 /*
 

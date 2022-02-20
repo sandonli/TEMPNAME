@@ -106,21 +106,21 @@ function findBestRoute(startAddr, endAddr, time, ownsBike) {
 
     */
     //startAddr, endAddr, time, ownsBike
-    //getPath();
-   let stops = ["A", "B", "C"];
-   let transportation;
-   if (ownsBike == false) {
-       transportation = "WALKING";
-   } else {
-       transportation = "BIKING";
-   } // change transportation for the case when you drive there
-   if (stops.length == 2) { // A --> B walk/bike
-       onChangeHandler(stops[0], stops[1], transportation);
-   }
-   else { // A --> B --> C swap from driving to walk/bike
-       onChangeHandler(stops[0], stops[1], "DRIVING");
-       onChangeHandler(stops[1], stops[2], transportation);
-   }
+    getPath(startAddr, endAddr, time, ownsBike);
+    // let stops = ["A", "B", "C"];
+    // let transportation;
+    // if (ownsBike == false) {
+    //     transportation = "WALKING";
+    // } else {
+    //     transportation = "BIKING";
+    // } // change transportation for the case when you drive there
+    // if (stops.length == 2) { // A --> B walk/bike
+    // onChangeHandler(stops[0], stops[1], transportation);
+    // }
+    // else { // A --> B --> C swap from driving to walk/bike
+    // onChangeHandler(stops[0], stops[1], "DRIVING");
+    // onChangeHandler(stops[1], stops[2], transportation);
+    // }
 
 }
 
