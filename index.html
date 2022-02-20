@@ -8,18 +8,23 @@
     <title>EcoRoute</title>
 </head>
 <body>
+    <div id = "instruction-view">
+        <div class = "header" id = "ecoHeader">
+            <img src = "assets/Capture_ccexpress.png"/>
+        </div>
+        <div class = "push"></div>
+
+        <div id = "scrollArrow"></div>
+
+    </div>
+
     <div id = "app-view">
         <h1 id = "test1"> HELLO 000</h1>
         <p class = "test2"> HELLO 111</p>
         <p><b>ECO-TONE</b></p>
         <p>Making The World Green, One Step At A Time</p> 
-        <div id = "main_container"></div>
         <div id = "logo">
             <img src = "assets/ecoRouteLogo.png"/>
-        </div>
-
-        <div id = "coolGrass">
-            <img src = "assets/coolgrass.jpg"/>
         </div>
         
         <h1>COOL MAP</h1>
@@ -38,11 +43,14 @@
         <input id = "endingAddress" placeholder = "Enter a destination..." type = "text" name = "endAdd">
 
 
-        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script> 
-        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script> 
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
         <!-- text here -->
-        <script src="main.js"></script>
+        <script src = "scrollButton.js"></script>
 
     </div>
+    <div class = "credits-view">
+        <p>TESTTESTTEST</p>
+    </div>"
 </body>
 </html>

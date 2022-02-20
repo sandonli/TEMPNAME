@@ -2,7 +2,7 @@
 
 const e = React.createElement;
 
-class Scrollbar extends React.Component {
+class scrollButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { liked: false };
@@ -21,6 +21,5 @@ class Scrollbar extends React.Component {
   }
 }
 
-
-const domContainer = document.querySelector('#arrowScrollbar');
-ReactDOM.render(e(LikeButton), domContainer);
+const domContainer = document.querySelector("#scrollArrow");
+ReactDOM.render(e(scrollButton), domContainer);

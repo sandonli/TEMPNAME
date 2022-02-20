@@ -87,12 +87,13 @@ function findBestRoute() {
      * 
      * 
      */
-    let travelRoute = {
-        origin: startingAddress,
-        destination: endingAddress,
-        provideRouteAlternatives = true,
-        travelMode: 'WALKING'
-    }
+    // let travelRoute = {
+    //     origin: startingAddress,
+    //     destination: endingAddress,
+    //     provideRouteAlternatives = true,
+    //     travelMode: 'WALKING'
+    // }
+
 }
 
 
@@ -134,11 +135,12 @@ class WelcomeDisplay {
             self.startAddr.value = "";
             self.endAddr.value = "";
             
-            findBestRoute();
+            //findBestRoute();
         })
     }
     
 }
+
 class LoadingScreen {
 
 }
@@ -151,6 +153,9 @@ class MapDisplay {
 
 function main() {
     let welcome = new WelcomeDisplay();
+    console.log(document);
 }
+
+
 
 window.addEventListener("load", main, false);
